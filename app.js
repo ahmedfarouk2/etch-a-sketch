@@ -2,6 +2,7 @@ const buttons = document.querySelectorAll('.button');
 const audio = document.querySelector('audio');
 const gridContainer = document.querySelector('.grid-container');
 const buttonPink = document.querySelector('.button-3');
+let countGridContainerClicks = 0;
 
 for (let i = 0; i < buttons.length; i++){
     buttons[i].addEventListener('click', (e) => {
@@ -29,9 +30,17 @@ window.addEventListener('load', (e) => {
 })
 
 buttonPink.addEventListener('click', (e) => {
-    window.addEventListener('mouseover', (e) => {
-        if (e.target.classList.contains('grid')){
-            e.target.style.backgroundColor = 'pink';
+    gridContainer.addEventListener('click', (e) => {
+        countGridContainerClicks++;
+        gridContainer.addEventListener('mouseover', (e) => {
+        if (e.target.classList.contains('grid') && countGridContainerClicks % 2 !== 0){
+            e.target.style.backgroundColor = 'black';
         }
+        else if (e.target.classList.contains('grid') && countGridContainerClicks % 2 == 0) {
+            if (e.target.classList.contains('grid')){
+                console.log('You just paused drawing!')
+            }
+        }
+        })
     })
 })
