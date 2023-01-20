@@ -1,7 +1,7 @@
 const buttons = document.querySelectorAll('.button');
 const audio = document.querySelector('audio');
 const gridContainer = document.querySelector('.grid-container');
-
+const buttonPink = document.querySelector('.button-3');
 
 for (let i = 0; i < buttons.length; i++){
     buttons[i].addEventListener('click', (e) => {
@@ -12,8 +12,8 @@ for (let i = 0; i < buttons.length; i++){
 
 window.addEventListener('load', (e) => {
     const requestedGridNumbers = prompt("What's the numbers of grids would you like Bro/Sis", "");
-    let gridBoxHeight = 550/`${requestedGridNumbers}`
-    let gridBoxWidth  = 550/`${requestedGridNumbers}`
+    let gridBoxHeight = 600/`${requestedGridNumbers}`
+    let gridBoxWidth  = 600/`${requestedGridNumbers}`
     for (let i = 0; i < requestedGridNumbers; i++){
     const row = document.createElement('div');
     gridContainer.append(row);
@@ -24,6 +24,14 @@ window.addEventListener('load', (e) => {
         gridBox.classList.add('grid');
         gridBox.style.height = `${gridBoxHeight}px`;
         gridBox.style.width  = `${gridBoxWidth}px`;
-    }
-    }
+    };
+    };
+})
+
+buttonPink.addEventListener('click', (e) => {
+    window.addEventListener('mouseover', (e) => {
+        if (e.target.classList.contains('grid')){
+            e.target.style.backgroundColor = 'pink';
+        }
+    })
 })
