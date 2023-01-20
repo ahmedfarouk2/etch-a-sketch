@@ -1,1 +1,108 @@
+html {
+    overflow: auto
+}
 
+body {
+    background-color: black;
+    min-height: 50vw;
+    font-family: monospace;
+}
+
+
+.title-container {
+    display: flex;
+}
+
+.neon-title {
+    color:#fff;
+    text-shadow:
+        0 0 7px #fff,
+        0 0 10px #fff,
+        0 0 21px #fff,
+        0 0 42px #0fa,
+        0 0 82px #0fa,
+        0 0 92px #0fa,
+        0 0 102px #0fa,
+        0 0 151px #0fa;
+        font-size: 40px;
+        margin-top: 50px;
+        padding-left: 20px;
+        transform: translate(625px);
+        animation: left-to-right 1s ease-in-out forwards;
+        animation-play-state: initial;
+  }
+
+  @keyframes left-to-right {
+    0% {
+        transform: translate(0px);
+  }
+ 
+    50% {
+        transform: translateY(50px);
+    }
+
+  100% {
+        transform: translate(625px);
+  };
+
+}
+
+.parent-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 50px;
+}
+
+
+.grid-container {
+    border: 2px solid #0fa;
+    margin-top: 50px;
+    display: flex;
+    height: 550px;
+    width: 550px;
+    margin: 0;
+    box-sizing: content-box;
+    flex-wrap: wrap;
+}
+
+.side-btn-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.button {
+    height: 70px;
+    width: 150px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    border-radius: 20px;
+    transition: 0.3s;
+    color: black;
+    background-image: linear-gradient(to right, red , yellow);
+}
+
+.button:hover{
+    border-color: #0fa;
+}
+  
+
+.button:active {
+    background-color: gray;
+    transform: translateY(5px);
+}
+
+.row {
+    display: flex;
+}
+
+.grid {
+    border: 0.1px solid palegoldenrod;
+    box-sizing: border-box;
+}
