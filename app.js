@@ -47,6 +47,10 @@ function blackDrawingFunction (e){
 
 const windowLoadingFunction = function (e){
     const requestedGridNumbers = prompt("What's the numbers of grids would you like bro/sis?", "");
+    if (requestedGridNumbers > 100){
+        alert("Bro/sis, We can't go over 100 boxes, Kindly choose a lesser number, Thx!")
+    }
+    else {
     let gridBoxHeight = 600/`${requestedGridNumbers}`
     let gridBoxWidth  = 600/`${requestedGridNumbers}`
     for (let i = 0; i < requestedGridNumbers; i++){
@@ -61,6 +65,7 @@ const windowLoadingFunction = function (e){
         gridBox.style.width  = `${gridBoxWidth}px`;
     };
     };
+ }
 }
 
 
