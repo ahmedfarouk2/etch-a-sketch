@@ -22,14 +22,12 @@ function resetFunction (e){
 }
 
 
-
 function eraseFunction (e){
-    gridContainer.addEventListener('mouseover', (e) => {
     if (e.target.classList.contains('grid')){
         e.target.style.backgroundColor = 'salmon';
     }
-    })
-}
+    }
+
 
 
 function blackDrawingFunction (e){
@@ -48,7 +46,7 @@ function blackDrawingFunction (e){
 
 
 const windowLoadingFunction = function (e){
-    const requestedGridNumbers = prompt("What's the numbers of grids would you like Bro/Sis", "");
+    const requestedGridNumbers = prompt("What's the numbers of grids would you like bro/sis?", "");
     let gridBoxHeight = 600/`${requestedGridNumbers}`
     let gridBoxWidth  = 600/`${requestedGridNumbers}`
     for (let i = 0; i < requestedGridNumbers; i++){
@@ -65,8 +63,9 @@ const windowLoadingFunction = function (e){
     };
 }
 
-gridContainer.addEventListener('click', blackDrawingFunction)
+
 window.addEventListener('load', windowLoadingFunction)
-eraserButton.addEventListener('click', eraseFunction)
+gridContainer.addEventListener('click', blackDrawingFunction)
+gridContainer.addEventListener('mouseover', eraseFunction)
 resetButton.addEventListener('click', resetFunction)
 
