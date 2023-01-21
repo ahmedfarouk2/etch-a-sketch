@@ -6,4 +6,4 @@ Worth mentioning that for the moment this won't work on mobile as it's not been 
 
 Thanks!
 
-<a href ="ahmedfarouk2.github.io/etch-a-sketch">Click here to try it!</a>
+<a href ="https://ahmedfarouk2.github.io/etch-a-sketch/">Click here to try it!</a>
