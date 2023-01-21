@@ -1,7 +1,9 @@
 const buttons = document.querySelectorAll('.button');
 const audio = document.querySelector('audio');
 const gridContainer = document.querySelector('.grid-container');
-const buttonPink = document.querySelector('.button-3');
+const resetButton = document.querySelector('.button-1')
+const eraserButton = document.querySelector('.button-2');
+const blackButton = document.querySelector('.button-3');
 let countGridContainerClicks = 0;
 
 for (let i = 0; i < buttons.length; i++){
@@ -11,7 +13,42 @@ for (let i = 0; i < buttons.length; i++){
     })
 };
 
-window.addEventListener('load', (e) => {
+
+function resetFunction (e){
+    const gridBoxes = document.querySelectorAll('.grid')
+    for (let i = 0; i < gridBoxes.length; i++){
+        gridBoxes[i].style.backgroundColor = 'salmon';
+    }
+}
+
+
+
+function eraseFunction (e){
+    gridContainer.addEventListener('mouseover', (e) => {
+    countGridContainerClicks1++;
+    if (e.target.classList.contains('grid')){
+        e.target.style.backgroundColor = 'salmon';
+    }
+    })
+}
+
+
+function blackDrawingFunction (e){
+    countGridContainerClicks++;
+    gridContainer.addEventListener('mouseover', (e) => {
+    if (e.target.classList.contains('grid') && countGridContainerClicks % 2 !== 0){
+        e.target.style.backgroundColor = 'black';
+    }
+    else if (e.target.classList.contains('grid') && countGridContainerClicks % 2 == 0) {
+        if (e.target.classList.contains('grid')){
+            console.log('You just paused drawing!');
+        }
+    }
+    })
+}
+
+
+const windowLoadingFunction = function (e){
     const requestedGridNumbers = prompt("What's the numbers of grids would you like Bro/Sis", "");
     let gridBoxHeight = 600/`${requestedGridNumbers}`
     let gridBoxWidth  = 600/`${requestedGridNumbers}`
@@ -27,20 +64,10 @@ window.addEventListener('load', (e) => {
         gridBox.style.width  = `${gridBoxWidth}px`;
     };
     };
-})
+}
 
-buttonPink.addEventListener('click', (e) => {
-    gridContainer.addEventListener('click', (e) => {
-        countGridContainerClicks++;
-        gridContainer.addEventListener('mouseover', (e) => {
-        if (e.target.classList.contains('grid') && countGridContainerClicks % 2 !== 0){
-            e.target.style.backgroundColor = 'black';
-        }
-        else if (e.target.classList.contains('grid') && countGridContainerClicks % 2 == 0) {
-            if (e.target.classList.contains('grid')){
-                console.log('You just paused drawing!')
-            }
-        }
-        })
-    })
-})
+gridContainer.addEventListener('click', blackDrawingFunction)
+window.addEventListener('load', windowLoadingFunction)
+eraserButton.addEventListener('click', eraseFunction)
+resetButton.addEventListener('click', resetFunction)
+
