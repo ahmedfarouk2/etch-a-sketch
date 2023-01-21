@@ -25,7 +25,6 @@ function resetFunction (e){
 
 function eraseFunction (e){
     gridContainer.addEventListener('mouseover', (e) => {
-    countGridContainerClicks1++;
     if (e.target.classList.contains('grid')){
         e.target.style.backgroundColor = 'salmon';
     }
